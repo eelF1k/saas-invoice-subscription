@@ -2,21 +2,21 @@
 
 Пет-проєкт для Fullstack Python Developer: SaaS-система для виставлення інвойсів, відстеження оплат і базової підписки.
 
-## Stack
+## Технологічний стек
 - Backend: Django, Django REST Framework, SimpleJWT
 - Frontend: React (Vite)
-- DB: PostgreSQL (або SQLite локально без Docker)
-- Infra: Docker Compose, GitHub Actions
+- БД: PostgreSQL (або SQLite локально без Docker)
+- Інфраструктура: Docker Compose, GitHub Actions
 
 ## Реалізовано
 - JWT auth: register, token, refresh, current user profile (`/api/auth/...`)
 - Invoice API: CRUD для інвойсів з nested items (`/api/invoices/...`)
 - Ізоляція даних: користувач бачить лише свої інвойси
-- Frontend demo:
+- Frontend-демо:
   - Login/Register
   - Create Invoice
   - List Invoices
-- Docker stack: `db + backend + frontend`
+- Docker-стек: `db + backend + frontend`
 - CI: backend tests + frontend build
 
 ## Структура
@@ -46,7 +46,7 @@ docker compose up --build
 4. Створи інвойс (номер, клієнт, item)
 5. Переконайся, що інвойс з'явився у списку
 
-## API quickstart
+## Швидкий старт API
 - Register: `POST /api/auth/register/`
 - Login (JWT): `POST /api/auth/token/`
 - Refresh: `POST /api/auth/token/refresh/`
@@ -65,7 +65,7 @@ docker compose up --build
 - Backend: `cd backend && python manage.py test`
 - Frontend build check: `cd frontend && npm run build`
 
-## Demo data
+## Демо-дані
 - Створи демо-акаунти і приклад інвойсу:
   - `cd backend && python manage.py seed_demo_data`
 - Логіни:
