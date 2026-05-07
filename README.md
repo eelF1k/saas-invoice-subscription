@@ -22,3 +22,23 @@
 10. Tests + CI
 11. Docs polish
 
+## Локальний запуск через Docker
+1. Переконайся, що Docker Desktop запущений.
+2. Із кореня проєкту виконай:
+
+```bash
+docker compose up --build
+```
+
+Сервіси:
+- Frontend: `http://localhost:5173`
+- Backend API: `http://localhost:8000/api`
+- Postgres: `localhost:5432`
+
+## Локальний запуск без Docker
+- Backend:
+  - `pip install -r requirements.txt`
+  - `cd backend && python manage.py migrate && python manage.py runserver`
+- Frontend:
+  - `cd frontend && npm install && npm run dev`
+
