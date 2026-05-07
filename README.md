@@ -5,22 +5,26 @@
 ## Stack
 - Backend: Django, Django REST Framework, SimpleJWT
 - Frontend: React (Vite)
-- DB: PostgreSQL (на dev етапі можна SQLite)
-- Infra: Docker Compose, GitHub Actions (далі по етапах)
+- DB: PostgreSQL (або SQLite локально без Docker)
+- Infra: Docker Compose, GitHub Actions
 
-## План комітів (0 -> N)
-0. Init repo structure
-1. Backend dependencies + Django scaffold
-2. DRF + JWT + базові settings
-3. Users app (custom user)
-4. Invoices domain models
-5. API serializers/viewsets/routes
-6. Auth endpoints (register/login/me)
-7. Frontend scaffold + auth pages
-8. Invoices UI (list/create/detail)
-9. Docker + local run scripts
-10. Tests + CI
-11. Docs polish
+## Реалізовано
+- JWT auth: register, token, refresh, current user profile (`/api/auth/...`)
+- Invoice API: CRUD для інвойсів з nested items (`/api/invoices/...`)
+- Ізоляція даних: користувач бачить лише свої інвойси
+- Frontend demo:
+  - Login/Register
+  - Create Invoice
+  - List Invoices
+- Docker stack: `db + backend + frontend`
+- CI: backend tests + frontend build
+
+## Структура
+- `backend/` — Django + DRF API
+- `frontend/` — React + Vite клієнт
+- `.github/workflows/ci.yml` — CI pipeline
+- `docker-compose.yml` — локальний fullstack запуск
+- `requirements.txt` — Python залежності
 
 ## Локальний запуск через Docker
 1. Переконайся, що Docker Desktop запущений.
@@ -35,10 +39,29 @@ docker compose up --build
 - Backend API: `http://localhost:8000/api`
 - Postgres: `localhost:5432`
 
+## Швидка перевірка за 5 хв
+1. Відкрий `http://localhost:5173`
+2. Створи акаунт на вкладці Register
+3. Увійди на вкладці Login
+4. Створи інвойс (номер, клієнт, item)
+5. Переконайся, що інвойс з'явився у списку
+
+## API quickstart
+- Register: `POST /api/auth/register/`
+- Login (JWT): `POST /api/auth/token/`
+- Refresh: `POST /api/auth/token/refresh/`
+- Me: `GET/PATCH /api/auth/me/`
+- Invoices: `GET/POST /api/invoices/`
+- Invoice detail: `GET/PUT/PATCH/DELETE /api/invoices/{id}/`
+
 ## Локальний запуск без Docker
 - Backend:
   - `pip install -r requirements.txt`
   - `cd backend && python manage.py migrate && python manage.py runserver`
 - Frontend:
   - `cd frontend && npm install && npm run dev`
+
+## Тести
+- Backend: `cd backend && python manage.py test`
+- Frontend build check: `cd frontend && npm run build`
 
