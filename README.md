@@ -65,3 +65,14 @@ docker compose up --build
 - Backend: `cd backend && python manage.py test`
 - Frontend build check: `cd frontend && npm run build`
 
+## Demo data
+- Створи демо-акаунти і приклад інвойсу:
+  - `cd backend && python manage.py seed_demo_data`
+- Логіни:
+  - `admin_demo / admin12345`
+  - `manager_demo / manager12345`
+
+## Runbook
+- Покроковий сценарій ручної перевірки:
+  - `docs/runbook.md`
+
