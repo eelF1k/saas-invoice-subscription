@@ -1,6 +1,6 @@
 # Mini SaaS Invoice & Subscription
 
-Пет-проєкт для Fullstack Python Developer: SaaS-система для виставлення інвойсів, відстеження оплат і базової підписки.
+Пет-проєкт SaaS-система для виставлення інвойсів, відстеження оплат і базової підписки.
 
 ## Технологічний стек
 - Backend: Django, Django REST Framework, SimpleJWT
@@ -39,14 +39,7 @@ docker compose up --build
 - Backend API: `http://localhost:8000/api`
 - Postgres: `localhost:5432`
 
-## Швидка перевірка за 5 хв
-1. Відкрий `http://localhost:5173`
-2. Створи акаунт на вкладці Register
-3. Увійди на вкладці Login
-4. Створи інвойс (номер, клієнт, item)
-5. Переконайся, що інвойс з'явився у списку
-
-## Швидкий старт API
+## Старт API
 - Register: `POST /api/auth/register/`
 - Login (JWT): `POST /api/auth/token/`
 - Refresh: `POST /api/auth/token/refresh/`
